@@ -10,4 +10,4 @@ dependencies:
    - minimap2=2.17
    - samtools=1.3
    - pycoqc=2.5.0.3
-   - talon=5.0
+   - talon=v5.0

@@ -31,7 +31,3 @@ RUN conda env create -f /environment.yml && conda clean -a
 RUN mkdir -p /project /nl /mnt /share
 ENV PATH /opt/conda/envs/dolphinnext-nanopore-1.0/bin:$PATH
 
-# Install TALON
-RUN cd /usr/local/bin && git clone https://github.com/mortazavilab/TALON.git && cd TALON && pip install .
-ENV PATH /usr/local/bin/TALON:$PATH
-

@@ -23,8 +23,9 @@ RUN apt-get -y install software-properties-common build-essential
 RUN add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu xenial-cran40/'
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
 #RUN apt-key adv --keyserver pgp.mit.edu --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-RUN apt-get -y install apt-transport-https python3.6
+RUN apt-get -y install apt-transport-https
 RUN apt-get -y update
+RUN apt-get -y install python3.6
 
 COPY environment.yml /
 RUN conda env create -f /environment.yml && conda clean -a

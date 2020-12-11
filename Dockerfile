@@ -25,8 +25,8 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys E298A3A825
 #RUN apt-key adv --keyserver pgp.mit.edu --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
 RUN apt-get -y install apt-transport-https
 RUN apt-get -y update
-RUN apt-get -y install python3.6
 
+RUN conda update -n base -c defaults conda
 COPY environment.yml /
 RUN conda env create -f /environment.yml && conda clean -a
 RUN mkdir -p /project /nl /mnt /share

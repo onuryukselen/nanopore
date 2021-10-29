@@ -30,8 +30,11 @@ RUN conda update -n base -c defaults conda
 COPY environment.yml /
 RUN conda env create -f /environment.yml && conda clean -a
 RUN mkdir -p /project /nl /mnt /share
-ENV PATH /opt/conda/envs/dolphinnext-nanopore-1.0/bin:$PATH
+ENV PATH /opt/conda/envs/dolphinnext-nanopore-2.0/bin:$PATH
 
 # Install TALON
 RUN cd /usr/local/bin && git clone https://github.com/mortazavilab/TALON.git && cd TALON && pip install .
 ENV PATH /usr/local/bin/TALON:$PATH
+
+RUN R -e "install.packages('devtools')" 
+RUN R -e "devtools::install_github("jmw86069/splicejam", dependencies = FALSE)"
